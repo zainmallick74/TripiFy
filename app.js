@@ -2,7 +2,8 @@ const dns = require("dns");
 dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 require("dotenv").config();
-
+console.log("ATLASDB_URL exists:", !!process.env.ATLASDB_URL);
+console.log("SECRET exists:", !!process.env.SECRET);
 const express = require("express");
 const app = express();
 const port = 8000;
