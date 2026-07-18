@@ -24,7 +24,7 @@ const reviewController = require("../controllers/review.js");
 router.post("/",
   isLoggedIn,
   validateReview,
-   wrapAsync(reviewController.createReview));
+  wrapAsync(reviewController.createReview));
 
 //DELETE REVIEW ROUTE
 router.delete("/:reviewId",

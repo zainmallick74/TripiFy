@@ -3,14 +3,19 @@ let {listingSchema} = require("../schema");
 
 
 module.exports.index = async(req, res) => {
- const allListing = await Listing.find({});
- res.render("listings/index.ejs", {allListing});
+  let allListing;
+  if(req.query.type) {
+     allListing = await Listing.find({type: req.query.type})
+  }
+  else{
+     allListing = await Listing.find({});
+  }
+  res.render("listings/index.ejs", {allListing});
 };
 
 
 module.exports.renderNewForm = (req, res) => {
- 
-  res.render("listings/new.ejs")
+ res.render("listings/new.ejs")
 }
 
 module.exports.showListing = async(req, res) => {

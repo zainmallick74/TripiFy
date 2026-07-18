@@ -262,3 +262,8 @@
 .card-text{
     margin-top: 3;
 }
+
+.filter {
+    text-decoration: none;
+    color: black;
+}

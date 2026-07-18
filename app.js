@@ -113,7 +113,7 @@ async function main() {
    });
 
 app.use((err, req, res, next) => {
-  console.error(err);   // 👈 Add this line
+  console.error(err);
   let { statusCode = 500, message = "something went wrong" } = err;
   res.status(statusCode).render("error.ejs", { err, message });
 });
