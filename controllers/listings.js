@@ -4,13 +4,23 @@ let {listingSchema} = require("../schema");
 
 module.exports.index = async(req, res) => {
   let allListing;
+
+  let filter = {};
+
   if(req.query.type) {
-     allListing = await Listing.find({type: req.query.type})
+    filter.type = req.query.type
   }
-  else{
-     allListing = await Listing.find({});
+  if(req.query.country) {
+   filter.country = req.query.country;
   }
+  
+   allListing = await Listing.find(filter);
+
   res.render("listings/index.ejs", {allListing});
+
+  if(req.query.country) {
+
+  }
 };
 
 

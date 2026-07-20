@@ -23,10 +23,6 @@
 </style>
 
 
-
-
-
-
 <nav class="navbar navbar-expand-lg bg-body-white sticky-top">
 
   <div class="container-fluid">
@@ -42,10 +38,11 @@
        </div>
 
        <div class="navbar-nav ms-auto ">
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" method="GET" action="/listings">
           <input class="form-control me-2"
             type="search"
-            placeholder="Search destinations"
+            name="country"
+            placeholder="Search any country"
             aria-label="search" />
 
           <button class="btn btn-search"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
