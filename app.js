@@ -70,7 +70,7 @@ main()
   });
 
 async function main() {
-    console.log(dbUrl);
+   
     await mongoose.connect(dbUrl);
 }
 
