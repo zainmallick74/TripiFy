@@ -267,3 +267,27 @@
     text-decoration: none;
     color: black;
 }
+
+.show-image-container{
+    display:flex;
+    justify-content:center;
+}
+
+.show-img{
+    width:75%; 
+    height:350px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-brand i{
+    font-size: 1.35rem;
+}
