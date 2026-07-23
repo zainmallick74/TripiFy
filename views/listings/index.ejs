@@ -75,12 +75,19 @@
     <div class="col mb-4">
         <div class="card listing-card">
 
-            <img
-                src="<%= listing.image.url %>"
-                class="card-img-top listing-img"
-                alt="listingImage"
-            >
-
+            <% if (listing.images && listing.images.length > 0) { %>
+    <img
+        src="<%= listing.images[0].url %>"
+        class="card-img-top listing-img"
+        alt="listingImage"
+    >
+            <% } else { %>
+               <img
+        src="https://placehold.co/600x400?text=No+Image"
+        class="card-img-top listing-img"
+        alt="No Image"
+    >
+<% } %>
             <div class="card-body">
 
                 <h5 class="card-title">
