@@ -28,7 +28,7 @@ const upload = multer({storage});
   .get(wrapAsync(listingController.index))
   .post(
    isLoggedIn,
-   upload.array("listing[image]",10),
+   upload.array("listing[images]",10),
    wrapAsync(listingController.createRoute));
   
   //new Route
@@ -39,7 +39,7 @@ const upload = multer({storage});
  .get( wrapAsync(listingController.showListing))
  .put(
   isLoggedIn,
-  upload.single("listing[image]"),
+  upload.array("listing[images]",10),
    wrapAsync(listingController.updateRoute))
  .delete(isLoggedIn, wrapAsync(listingController.deleteRoute));
 

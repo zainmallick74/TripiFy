@@ -80,11 +80,16 @@ module.exports.createRoute = async (req, res, next) => {
  
    let {id} = req.params;
    let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
-   if(typeof req.file !== "undefined") {
-   let url = req.file.path;
-   let filename = req.file.filename;
-   listing.image = {url, filename };
-   await listing.save();
+
+   if(req.files && req.files.length > 0) {
+     let newImages = req.files.map(file => ({
+      url: file.path,
+      filename: file.filename
+     }))
+
+     listing.images.push(...newImages);
+     await listing.save();
+     
    }
 
    res.redirect(`/listings/${id}`);
