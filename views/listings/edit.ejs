@@ -49,6 +49,35 @@
             </select>
         </div>
 
+    <div class="mb-3">
+      <label class="form-label">Current Images</label>
+
+      <div class="d-flex flex-wrap gap-3">
+        <% for(let image of listing.images) { %>
+
+            <div class="d-flex flex-column align-items-center">
+                    <img
+                       src="<%= image.url %>"
+                       class="img-thumbnail"
+                       style="width:150px; height:100px; object-fit:cover;"
+                    >
+
+                    <button 
+                      type="button"
+                      class="delete-img btn btn-danger btn-sm mt-2"
+                      data-id="<%=listing._id%>"
+                      data-filename="<%=image.filename %>"
+                      >
+                      <i class="fa-solid fa-trash"></i> Delete
+                    </button> 
+
+            </div>
+
+            <% } %>
+        </div>
+      </div>
+
+
         <div class="mb-3">
             <label class="form-label">Upload new image</label>
 
@@ -113,3 +142,4 @@
 </div>
 
 <script src="/js/script.js"></script>
+<script src="/js/deleteImage.js"></script>

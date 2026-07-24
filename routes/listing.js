@@ -46,4 +46,14 @@ const upload = multer({storage});
 //Edit Route
 router.get("/:id/edit", wrapAsync(listingController.editRoute));
 
+//Delete Image Routes
+
+router.delete(
+    "/:id/images",
+    isLoggedIn,
+    wrapAsync(listingController.deleteImage)
+);
+
+
+
 module.exports = router;

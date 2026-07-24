@@ -1,5 +1,6 @@
 const Listing = require("../models/listing");
 let {listingSchema} = require("../schema");
+const {cloudinary} = require("../cloudConfig");
 
 
 module.exports.index = async(req, res) => {
@@ -102,3 +103,24 @@ module.exports.createRoute = async (req, res, next) => {
   let deletedListing = await Listing.findByIdAndDelete(id);
   res.redirect("/listings");
 }
+
+module.exports.deleteImage = async (req, res) => {
+
+    let { id } = req.params;
+    let { filename } = req.body;
+
+    let listing = await Listing.findById(id);
+
+    await cloudinary.uploader.destroy(filename);
+
+    listing.images = listing.images.filter(
+        (image) => image.filename !== filename
+    );
+
+    await listing.save();
+
+    res.json({
+        success: true
+    });
+
+};
