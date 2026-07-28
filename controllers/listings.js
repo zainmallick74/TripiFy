@@ -2,26 +2,58 @@ const Listing = require("../models/listing");
 let {listingSchema} = require("../schema");
 const {cloudinary} = require("../cloudConfig");
 
-
-module.exports.index = async(req, res) => {
+module.exports.listings = async(req, res) => {
+  let {search, type} = req.query;
   let allListing;
-
-  let filter = {};
-
-  if(req.query.type) {
-    filter.type = req.query.type
-  }
-  if(req.query.country) {
-   filter.country = req.query.country;
-  }
   
-   allListing = await Listing.find(filter);
+  if(type) {
+     allListing = await Listing.find({ type })
+  }
+  else if(search) {
+    allListing = await Listing.find({
+      $or: [
+          {
+            title: {
+              $regex: search,
+              $options: "i",
+            }, 
+          },
+
+          {
+            city: {
+              $regex: search,
+              $options:"i",
+            },
+          },
+
+          {
+            state: {
+              $regex: search,
+              $options:"i",
+            },
+          },
+
+          {
+            country: {
+              $regex: search,
+              $options:"i",
+            },
+          },
+
+          {
+            type: {
+              $regex: search,
+              $options:"i",
+            },
+          },
+
+      ],
+    });
+  } else {
+    allListing = await Listing.find({});
+  }
 
   res.render("listings/index.ejs", {allListing});
-
-  if(req.query.country) {
-
-  }
 };
 
 

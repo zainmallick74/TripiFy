@@ -25,7 +25,7 @@ const upload = multer({storage});
 
   router
   .route("/")
-  .get(wrapAsync(listingController.index))
+  .get(wrapAsync(listingController.listings))
   .post(
    isLoggedIn,
    upload.array("listing[images]",10),

@@ -1,8 +1,4 @@
-console.log("deleteImage.js loaded");
 const deleteButtons = document.querySelectorAll(".delete-img");
-
-console.log(deleteButtons);
-console.log(deleteButtons.length);
 
 deleteButtons.forEach((button) => {
 
@@ -22,8 +18,6 @@ deleteButtons.forEach((button) => {
     });
     
      const data = await response.json();
-
-        console.log(data);
 
         if (data.success) {
           location.reload();

@@ -347,3 +347,103 @@
     cursor:pointer;
     z-index:10;
 }
+
+
+/* ---------- Hero Section ---------- */
+
+.hero-section {
+    width: 100%;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #f7f2ea, #efe3d2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    
+}
+
+/* ---------- Hero Content ---------- */
+
+.hero-content {
+    width: 95%;
+    max-width: 1400px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5rem;
+}
+
+/* ---------- Left Side ---------- */
+
+.text-part {
+    flex: 1;
+}
+
+.heading {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #3f2d20;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.text {
+    font-size: 1.2rem;
+    color: #6f5a45;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* ---------- Button ---------- */
+
+.hero-btn {
+    background: #504942;
+    color: rgb(248, 236, 236);
+    border: none;
+    padding: 15px 38px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.hero-btn:hover{
+    background:#5b3f26;
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.18);
+}
+
+/* ---------- Right Side ---------- */
+
+.image-part{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.heroImage{
+    width:100%;
+    max-width:650px;
+    height: 400px;
+
+    border-radius:28px;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.18);
+
+    transition:.4s;
+}
+
+.heroImage:hover{
+    transform:scale(1.02);
+}
+
+.home-page {
+    background-color: #F3F0EA;
+}

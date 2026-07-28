@@ -106,16 +106,28 @@
         <div class="row">
 
             <div class="col-md-6 mb-3">
-                <label class="form-label">Location</label>
+                <label class="form-label">City</label>
 
                 <input
                     type="text"
                     class="form-control"
-                    name="listing[location]"
-                    value="<%= listing.location %>"
+                    name="listing[city]"
+                    value="<%= listing.city %>"
                     required
                     >
-                 <div class="invalid-feedback">Location should be valid</div>
+                 <div class="invalid-feedback">City should be valid</div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">State</label>
+                <input 
+                type="text"
+                class="form-control"
+                name="listing[state]"
+                value="<%=listing.state%>"
+                required
+                />
+                <div class="invalid-feedback">City should be valid</div>
             </div>
 
             <div class="col-md-6 mb-3">

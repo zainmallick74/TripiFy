@@ -20,6 +20,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const homeRouter = require("./routes/home.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -75,9 +76,7 @@ async function main() {
     await mongoose.connect(dbUrl);
 }
 
-  app.get("/", (req, res) => {
-    res.redirect("/listings");
-  });
+ 
 
   app.use(session(sessionOption));
   app.use(flash());
@@ -96,14 +95,7 @@ async function main() {
   next();
   })
 
-  app.get("/demouser", async(req, res) => {
-     let fakeUser = new User({
-      email: "abc@gmail.com",
-      username: "delta-student",
-     });
-     let registeredUser = await User.register(fakeUser, "helloworld");
-     res.send(registeredUser)
-  });
+   app.use("/", homeRouter);
 
   app.use("/listings", listings);
   app.use("/listings/:id/reviews", reviews);

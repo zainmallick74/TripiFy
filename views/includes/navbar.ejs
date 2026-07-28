@@ -38,11 +38,12 @@
        </div>
 
        <div class="navbar-nav ms-auto ">
+
         <form class="d-flex" role="search" method="GET" action="/listings">
           <input class="form-control me-2"
             type="search"
-            name="country"
-            placeholder="Search any country"
+            name="search"
+            placeholder="Search places"
             aria-label="search" />
 
           <button class="btn btn-search"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
@@ -50,7 +51,7 @@
        </div>
        
        <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Add Listing </a>
+        <a class="nav-link" href="/listings/new">Add Property </a>
         <% if(!currUser) { %>
 
           <a class="nav-link active" aria-current="page" href="/signup"><b> signup </b></a>
