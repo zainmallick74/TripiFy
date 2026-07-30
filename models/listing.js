@@ -25,6 +25,9 @@ const listingSchema = new Schema({
     type:String,
     required:true,
   },
+  destination:{
+    type:String,
+  },
 
   reviews: [
     {

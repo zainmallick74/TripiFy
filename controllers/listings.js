@@ -3,7 +3,7 @@ let {listingSchema} = require("../schema");
 const {cloudinary} = require("../cloudConfig");
 
 module.exports.listings = async(req, res) => {
-  let {search, type} = req.query;
+  let {search, type, city} = req.query;
   let allListing;
   
   if(type) {
@@ -49,7 +49,16 @@ module.exports.listings = async(req, res) => {
 
       ],
     });
-  } else {
+  } else if(city) {
+    allListing = await Listing.find({
+      city: {
+        $regex: `^${city}$`,
+        $options:"i"
+      }
+    })
+
+  }
+  else {
     allListing = await Listing.find({});
   }
 

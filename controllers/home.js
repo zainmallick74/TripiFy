@@ -3,3 +3,4 @@ module.exports.renderHome = (req, res) => {
      bodyClass: "home-page"
   });
 }
+
