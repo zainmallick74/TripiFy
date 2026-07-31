@@ -1,67 +1,70 @@
-<style>
-  .btn-search{
-    background-color: #fe424d;
-    color: #ffff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-  }
+<nav class="navbar sticky-top">
 
-  .btn-search:hover {
-    background-color: #fe424d;
-    color: #fff;
-  }
+    <div class="navbar-container">
 
-  .btn-search i {
-    display: inline;
-    margin-right: 0.5rem;
-  }
+        <div class="navbar-left">
 
-</style>
+            <a href="/" class="navbar-brand">
+                <i class="fa-solid fa-map"></i>
+                Tripify
+            </a>
 
+            <a href="/" class="nav-link active">
+                Home
+            </a>
 
-<nav class="navbar navbar-expand-lg bg-body-white sticky-top">
+        </div>
 
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"> <i class="fa-solid fa-map"></i> Tripify</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-       
-      <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
-        
-       </div>
+        <div class="navbar-center">
 
-       <div class="navbar-nav ms-auto ">
+            <form class="navbar-search" method="GET" action="/listings">
 
-        <form class="d-flex" role="search" method="GET" action="/listings">
-          <input class="form-control me-2"
-            type="search"
-            name="search"
-            placeholder="Search places"
-            aria-label="search" />
+                <input
+                    type="search"
+                    class="form-control"
+                    name="search"
+                    placeholder="Search places">
 
-          <button class="btn btn-search"> <i class="fa-solid fa-magnifying-glass"></i> Search</button>
-        </form>
-       </div>
-       
-       <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Add Property </a>
-        <% if(!currUser) { %>
+                <button class="btn-search">
 
-          <a class="nav-link active" aria-current="page" href="/signup"><b> signup </b></a>
-          <a class="nav-link" href="/login"><b>Log in </b></a>
-         <% } %>
-          <% if(currUser) { %>
-          <a class="nav-link" href="/logout"><b> Log out </b> </a>
-          <% } %>
-       </div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    Search
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="navbar-right">
+
+            <a href="/listings/new" class="host-link">
+                Add Property
+            </a>
+
+            <% if(!currUser){ %>
+
+                <a href="/signup" class="nav-link">
+                    Sign Up
+                </a>
+
+                <a href="/login" class="nav-link login-link">
+                    Log In
+                </a>
+
+            <% } %>
+
+            <% if(currUser){ %>
+
+                <a href="/logout" class="nav-link login-link">
+                    Log Out
+                </a>
+
+            <% } %>
+
+        </div>
 
     </div>
-  </div>
+
 </nav>

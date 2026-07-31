@@ -717,3 +717,181 @@
 
     margin-bottom:2rem;
 }
+
+
+
+/* NAVBAR  */
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+    background:#F8F4EC;
+    border-bottom:1px solid #E8DFD2;
+    box-shadow:0 3px 18px rgba(0,0,0,.04);
+    padding:16px 0;
+}
+
+.navbar-container{
+    max-width:1400px;
+    width:92%;
+    margin:0 auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Left */
+
+.navbar-left{
+    display:flex;
+    align-items:center;
+    gap:2rem;
+}
+
+/* Center */
+
+.navbar-center{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+/* Right */
+
+.navbar-right{
+    display:flex;
+    align-items:center;
+    gap:1.2rem;
+}
+
+/* Logo */
+
+.navbar-brand{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+
+    font-size:1.9rem;
+    font-weight:700;
+
+    color:#7A5634 !important;
+    text-decoration:none;
+}
+
+.navbar-brand:hover{
+    color:#FF5A5F;
+}
+
+.navbar-brand i{
+    font-size:1.8rem;
+    color:#7A5634;
+}
+
+/* Links */
+
+.nav-link{
+    text-decoration:none;
+    color:#3D2B1F;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#A67C52;
+}
+
+.nav-link.active{
+    font-weight:600;
+}
+
+/* Search */
+
+.navbar-search{
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    margin: 0;
+}
+
+.navbar-search .form-control{
+
+    width:280px;
+
+    padding:.7rem 1.1rem;
+
+    border-radius:30px;
+
+    border:1px solid #E8DFD2;
+
+    box-shadow:none;
+}
+
+.navbar-search .form-control:focus{
+
+    border-color:#C7A27C;
+
+    box-shadow:0 0 0 .15rem rgba(166,124,82,.18);
+}
+
+/* Search Button */
+
+.btn-search{
+
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+
+    background:#7A5634;
+
+    color:white;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:.7rem 1.4rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-search:hover{
+
+    background:#5F4128;
+
+    color:white;
+}
+
+/* Host Button */
+
+.host-link{
+
+    text-decoration:none;
+
+    color:#3D2B1F;
+
+    border:1px solid #D9C8B3;
+
+    border-radius:30px;
+
+    padding:.7rem 1.4rem;
+
+    transition:.3s;
+}
+
+.host-link:hover{
+
+    background:#F3ECE2;
+
+    color:#3D2B1F;
+}
+
+/* Login */
+
+.login-link{
+    font-weight:600;
+}
