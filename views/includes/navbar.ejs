@@ -8,10 +8,12 @@
                 <i class="fa-solid fa-map"></i>
                 Tripify
             </a>
-
+ 
+            <div class="desktop-nav">
             <a href="/" class="nav-link active">
                 Home
             </a>
+            </div>
 
         </div>
 
@@ -39,6 +41,8 @@
 
         <div class="navbar-right">
 
+            <div class="desktop-links">
+
             <a href="/listings/new" class="host-link">
                 Add Property
             </a>
@@ -62,9 +66,30 @@
                 </a>
 
             <% } %>
+           </div>
+             <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
 
         </div>
 
     </div>
 
 </nav>
+
+<!-- For Mobile -->
+
+<div class="mobile-menu">
+
+    <a href="/"> <i class="fa-solid fa-house"></i> Home</a>
+    <a href="/listings/new"> <i class="fa-solid fa-plus"></i> Add property</a>
+
+    <% if(!currUser) {%>
+        <a href="/signup"> <i class="fa-solid fa-user-plus"></i> Sign Up</a>
+        <a href="/login"> <i class="fa-solid fa-right-to-bracket"></i> Log In</a>
+    <% } %> 
+
+    <% if(currUser) { %>
+        <a href="/logout">Log Out</a>
+
+    <% } %>
+
+</div>

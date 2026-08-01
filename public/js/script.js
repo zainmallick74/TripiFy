@@ -16,3 +16,12 @@
     }, false)
   })
 })()
+
+const menuBtn = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+if(menuBtn && mobileMenu) {
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("active");
+  })
+}
