@@ -1,11 +1,3 @@
-<style>
-
-  .container{
-    margin-top: 3rem;
-  }
-  
-</style>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,13 +14,12 @@
     <link href="/css/rating.css" rel="stylesheet">
 
 </head>
-<body>
+<body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : '' %>">
 
 
   <%- include("../includes/navbar.ejs") %>
-  <body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : '' %>">
   
-  <div class="container">
+  <div>
       <!-- <h1 class="Page title">WanderLust</h1> -->
       <%- include("../includes/alert.ejs") %>
       <%- body %>

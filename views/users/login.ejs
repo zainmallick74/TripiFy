@@ -1,32 +1,33 @@
 <% layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-   <div class="col-6 offset-3">
-    <h2>Login for Tripify</h2>
+<div class="login-page">
+   <div class="login-form-content ">
+    <h2 class="login-form-heading">Login for Tripify</h2>
      <form action="/login" method="POST" class="needs-validation" novalidate>
          <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input 
-            name="username"
-            id="username"
-            type="text"
-            class="form-control"
-            required
-          />
-          <div class="valid-feedback">looks good</div>
-         </div>
+           <label for="username" class="user-label form-label">Username</label>
+           <input 
+              name="username"
+              id="username"
+              type="text"
+              class="user-input form-control"
+              required
+            />
+             <div class="valid-feedback">looks good</div>
+           </div>
 
           <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input 
-            name="password"
-            id="password"
-            type="password"
-            class="form-control"
-            required
-          />
+            <label for="password" class="user-label form-label">Password</label>
+            <input 
+              name="password
+              id="password"
+              type="password"
+              class="user-input form-control"
+              required
+             />
         
-         </div>
+          </div>
+          
         <button class="btn btn-success">login</button>
      </form>
 
