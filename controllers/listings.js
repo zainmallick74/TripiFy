@@ -164,4 +164,12 @@ module.exports.deleteImage = async (req, res) => {
         success: true
     });
 
+    
+
 };
+
+//profile-properties
+    module.exports.myProperties = async (req, res) => {
+      const listings = await Listing.find({owner:req.user._id});
+      res.render("listings/myProperties", { listings });
+    }

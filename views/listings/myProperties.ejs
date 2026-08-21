@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="my-properties-page">
+
+    <div class="my-properties-heading">
+        <p>YOUR SPACE</p>
+        <h1>My Properties</h1>
+        <span>Manage the places you've listed on Tripify.</span>
+    </div>
+
+
+    <% if (listings.length === 0) { %>
+
+        <div class="empty-properties">
+            <i class="fa-solid fa-house"></i>
+            <h2>No properties yet</h2>
+            <p>You haven't listed any property on Tripify.</p>
+
+            <a href="/listings/new" class="listing-btn">
+                <i class="fa-solid fa-plus"></i>
+                Add Property
+            </a>
+        </div>
+
+    <% } else { %>
+
+
+        <div class="listing-cards row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+
+            <% for(let listing of listings) { %>
+
+                <div class="col mb-4">
+
+                    <div class="card listing-card">
+
+                        <% if (listing.images && listing.images.length > 0) { %>
+
+                            <img
+                                src="<%= listing.images[0].url %>"
+                                class="card-img-top listing-img"
+                                alt="listingImage"
+                            >
+
+                        <% } else { %>
+
+                            <img
+                                src="https://placehold.co/600x400?text=No+Image"
+                                class="card-img-top listing-img"
+                                alt="No Image"
+                            >
+
+                        <% } %>
+
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                <%= listing.title %>
+                            </h5>
+
+                            <p class="card-price">
+                                &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+                            </p>
+
+
+                            <a
+                                href="/listings/<%= listing._id %>"
+                                class="listing-btn"
+                            >
+                                View Details
+                            </a>
+
+
+                            <!-- Landlord Controls -->
+
+                            <div class="property-actions">
+
+                                <a
+                                    href="/listings/<%= listing._id %>/edit"
+                                    class="property-edit-btn"
+                                >
+                                    <i class="fa-solid fa-pen"></i>
+                                    Edit
+                                </a>
+
+
+                                <form
+                                    action="/listings/<%= listing._id %>?_method=DELETE"
+                                    method="POST"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="property-delete-btn"
+                                    >
+                                        <i class="fa-solid fa-trash"></i>
+                                        Delete
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    <% } %>
+
+</div>

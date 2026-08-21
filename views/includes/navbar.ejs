@@ -43,31 +43,37 @@
 
             <div class="desktop-links">
 
-            <a href="/listings/new" class="host-link">
+                <a href="/listings/new" class="host-link">
                 Add Property
-            </a>
-
-            <% if(!currUser){ %>
-
-                <a href="/signup" class="nav-link">
-                    Sign Up
                 </a>
 
-                <a href="/login" class="nav-link">
-                    Log In
-                </a>
+                <% if(!currUser){ %>
 
+                    <a href="/signup" class="nav-link">
+                        Sign Up
+                    </a>
+
+                    <a href="/login" class="nav-link">
+                        Log In
+                    </a>
+
+                <% } %>
+
+                <% if(currUser){ %>
+
+                    <a href="/logout" class="nav-link">
+                        Log Out
+                    </a>
+
+                <% } %>
+            </div>
+                <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+
+           <% if(currUser) { %>
+                <a href="/profile" class="profile-link" >
+                    <i class="fa-solid fa-user"></i>
+                </a>
             <% } %>
-
-            <% if(currUser){ %>
-
-                <a href="/logout" class="nav-link">
-                    Log Out
-                </a>
-
-            <% } %>
-           </div>
-             <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
 
         </div>
 

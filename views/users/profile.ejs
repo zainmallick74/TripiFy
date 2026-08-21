@@ -1,0 +1,183 @@
+<% layout("/layouts/boilerplate") %>
+<h1>Account Information</h1>
+
+
+<div class="profile-page">
+
+    <!-- Page Heading -->
+    <div class="profile-heading">
+        <p class="profile-eyebrow">MY TRIPIFY</p>
+        <h1>Your travel identity</h1>
+    </div>
+
+
+    <!-- Profile Identity Card -->
+    <section class="profile-identity">
+
+        <div class="profile-main">
+
+            <!-- Profile Icon -->
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <!-- User Information -->
+            <div class="profile-user-info">
+                <h2><%= username %></h2>
+                <p><%= email %></p>
+
+                <span class="profile-role">
+                    <i class="fa-solid fa-house"></i>
+                    <%= role %>
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- Profile Details -->
+        <div class="profile-details">
+
+            <div class="profile-detail">
+                <span>ACCOUNT TYPE</span>
+                <strong><%= role %></strong>
+            </div>
+
+            <div class="profile-detail">
+                <span>ACCOUNT STATUS</span>
+                <strong class="account-status">
+                    <i class="fa-solid fa-circle"></i>
+                    Active
+                </strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Role Based Section -->
+
+    <% if(role === "landlord") { %>
+
+        <section class="profile-space">
+
+            <div class="section-heading">
+                <p>YOUR SPACE</p>
+                <h2>Manage your Tripify space</h2>
+            </div>
+
+
+            <div class="profile-actions">
+
+                <!-- My Properties -->
+                <a href="/listings/my-properties" class="profile-action-card">
+
+                    <div class="action-icon">
+                        <i class="fa-solid fa-house"></i>
+                    </div>
+
+                    <div class="action-content">
+                        <h3>Your Properties</h3>
+                        <p>View and manage the places you've listed.</p>
+                        <span>View properties <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                </a>
+
+
+                <!-- Add Property -->
+                <a href="/listings/new" class="profile-action-card action-primary">
+
+                    <div class="action-icon">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+
+                    <div class="action-content">
+                        <h3>List a New Place</h3>
+                        <p>Share your place with travelers around the world.</p>
+                        <span>Start listing <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+    <% } else if(role === "guest") { %>
+
+        <section class="profile-space">
+
+            <div class="section-heading">
+                <p>YOUR JOURNEY</p>
+                <h2>Keep track of your travels</h2>
+            </div>
+
+
+            <div class="profile-actions">
+
+                <!-- Bookings -->
+                <a href="#" class="profile-action-card">
+
+                    <div class="action-icon">
+                        <i class="fa-solid fa-suitcase"></i>
+                    </div>
+
+                    <div class="action-content">
+                        <h3>Your Bookings</h3>
+                        <p>View your upcoming and previous stays.</p>
+                        <span>View bookings <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                </a>
+
+
+                <!-- Wishlist -->
+                <a href="#" class="profile-action-card action-primary">
+
+                    <div class="action-icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                    <div class="action-content">
+                        <h3>Your Wishlist</h3>
+                        <p>Keep your favorite places saved for later.</p>
+                        <span>View wishlist <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    <% } %>
+
+
+    <!-- Account Section -->
+
+    <section class="profile-account">
+
+        <p>ACCOUNT</p>
+
+        <div class="account-links">
+
+            <a href="#">
+                <i class="fa-solid fa-pen"></i>
+                Edit Profile
+            </a>
+
+            <span class="account-divider">•</span>
+
+            <a href="/logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log Out
+            </a>
+
+        </div>
+
+    </section>
+
+</div>

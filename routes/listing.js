@@ -34,6 +34,8 @@ const upload = multer({storage});
   //new Route
   router.get("/new", isLoggedIn, listingController.renderNewForm);
 
+  router.get("/my-properties", isLoggedIn, listingController.myProperties);
+
 
  router.route("/:id")
  .get( wrapAsync(listingController.showListing))
@@ -53,7 +55,5 @@ router.delete(
     isLoggedIn,
     wrapAsync(listingController.deleteImage)
 );
-
-
 
 module.exports = router;

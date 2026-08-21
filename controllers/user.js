@@ -7,8 +7,8 @@ module.exports.rendersignup =  (req, res) => {
 
 module.exports.signup = async(req, res) => {
    try {
-    let {username, email, password} = req.body;
-    const newUser = new User({email, username});
+    let {username, email, password, role} = req.body;
+    const newUser = new User({email, username, role});
     const regiteredUser = await User.register(newUser, password);
     req.login(regiteredUser, (err) => {
       if(err) {
@@ -42,4 +42,10 @@ module.exports.login =  async(req, res) => {
      req.flash("success", "you are logged out!");
      res.redirect("/");
   });
-}
+ }
+
+  module.exports.profile = (req, res) => {
+    let {username, email, role} = req.user;
+    
+    res.render("users/profile", {username, email, role});
+  };
