@@ -1,0 +1,181 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="my-bookings-page">
+
+    <!-- Page Header -->
+    <div class="my-bookings-header">
+
+        <div>
+            <p class="bookings-eyebrow">YOUR JOURNEY</p>
+
+            <h1>My Bookings</h1>
+        </div>
+
+        <a href="/listings" class="explore-bookings-btn">
+            <i class="fa-solid fa-compass"></i>
+            Explore Places
+        </a>
+
+    </div>
+
+
+    <% if (bookings.length === 0) { %>
+
+        <!-- Empty State -->
+
+        <div class="empty-bookings">
+
+            <div class="empty-bookings-icon">
+                <i class="fa-solid fa-suitcase"></i>
+            </div>
+
+            <h2>No bookings yet</h2>
+
+            <p>
+                You haven't booked any property yet.
+                Start exploring places for your next trip.
+            </p>
+
+            <a href="/listings" class="listing-btn">
+                Explore Properties
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+    <% } else { %>
+
+
+        <!-- Booking List -->
+
+        <div class="bookings-list">
+
+            <% for(let booking of bookings) { %>
+
+                <div class="booking-card">
+
+                    <!-- Property Image -->
+
+                    <div class="booking-image">
+
+                        <% if (
+                            booking.listing &&
+                            booking.listing.images &&
+                            booking.listing.images.length > 0
+                        ) { %>
+
+                            <img
+                                src="<%= booking.listing.images[0].url %>"
+                                alt="<%= booking.listing.title %>"
+                            >
+
+                        <% } else { %>
+
+                            <img
+                                src="https://placehold.co/600x400?text=No+Image"
+                                alt="No Image"
+                            >
+
+                        <% } %>
+
+                    </div>
+
+
+                    <!-- Booking Information -->
+
+                    <div class="booking-content">
+
+                        <div class="booking-top">
+
+                            <div>
+
+                                <p class="booking-label">
+                                    BOOKED PROPERTY
+                                </p>
+
+                                <h2>
+                                    <%= booking.listing.title %>
+                                </h2>
+
+                            </div>
+
+                            <span class="booking-status">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Confirmed
+                            </span>
+
+                        </div>
+
+
+                        <div class="booking-location">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <%= booking.listing.city %>,
+                            <%= booking.listing.country %>
+
+                        </div>
+
+
+                        <div class="booking-details">
+
+                            <div class="booking-detail">
+
+                                <span>PRICE</span>
+
+                                <strong>
+                                    &#8377;<%= booking.listing.price.toLocaleString("en-IN") %>
+                                    <small>/ night</small>
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-detail">
+
+                                <span>PROPERTY TYPE - </span>
+
+                                <strong>
+                                    <%= booking.listing.type %>
+                                </strong>
+
+                            </div>
+
+
+                            <div class="booking-detail">
+
+                                <span>BOOKING ID - </span>
+
+                                <strong>
+                                    #<%= booking._id.toString().slice(-6) %>
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="booking-actions">
+
+                            <a
+                                href="/listings/<%= booking.listing._id %>"
+                                class="booking-view-btn"
+                            >
+                                View Property
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    <% } %>
+
+</div>

@@ -21,6 +21,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const homeRouter = require("./routes/home.js");
+const bookingRouter = require("./routes/booking.js");
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -100,6 +101,7 @@ async function main() {
   app.use("/listings", listings);
   app.use("/listings/:id/reviews", reviews);
   app.use("/", userRouter);
+  app.use("/bookings", bookingRouter);
 
    app.use((req, res, next) => {
     next(new ExpressError(404, "Page not found"));

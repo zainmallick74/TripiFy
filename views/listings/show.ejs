@@ -66,6 +66,17 @@
                     <%= listing.type %>
                 </p>
 
+               <% if(currUser && currUser.role === "guest") { %>
+
+                <form action="/bookings/<%=listing._id%>" method="POST">
+                   <button type="submit" class="book-property-btn">
+                       <i class="fa-solid fa-plus"></i>
+                       Book property
+                   </button>
+                </form>
+
+               <% } %>
+
                 <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
 
                     <div class="d-flex gap-3 mt-4">

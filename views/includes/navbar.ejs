@@ -43,9 +43,18 @@
 
             <div class="desktop-links">
 
-                <a href="/listings/new" class="host-link">
-                Add Property
-                </a>
+                <%  if(!currUser || currUser.role !== "guest") { %>
+                     <a href="/listings/new" class="host-link">
+                        Add Property
+                    </a>
+                   
+                <%  } else { %>
+
+                    <a href="bookings/my-bookings" class="host-link">
+                     View Booking
+                    </a>
+
+                <% } %>
 
                 <% if(!currUser){ %>
 
